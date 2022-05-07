@@ -12,7 +12,7 @@ public class CheckingTrigger : MonoBehaviour
 
     private bool _isGround = false;
     private bool _isEnemy = false;
-
+    
     private void Awake()
     {
         _boxCollider2D = GetComponent<BoxCollider2D>();

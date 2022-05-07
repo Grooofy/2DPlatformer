@@ -28,15 +28,6 @@ public class Enemy : MonoBehaviour
     {
         _moving.Move(_direction, _speed);
     }
-
-    public void TakeDamage()
-    {
-        if (_life == 0)
-            Destroy(gameObject);
-
-        _life--;
-    }
-
     private IEnumerator FadeState()
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(_delay);
@@ -50,5 +41,23 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Character character))
+        {
+            character.TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        if (_life == 0)
+            Destroy(gameObject);
+
+        _life--;
+    }
+
+    
 }
 

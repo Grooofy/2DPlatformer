@@ -26,9 +26,10 @@ public class Moving : MonoBehaviour
 
     public void Jump(float jumpForse) => _rigidbody2D.AddForce(Vector2.up * jumpForse, ForceMode2D.Impulse);
 
-    public void SpringOff()
+    public void SpringOff(float direction)
     {
-        float forseImpulse = 2;
-        _rigidbody2D.AddForce(Vector2.up * forseImpulse, ForceMode2D.Impulse);
+        float forseImpulseUp = 6;
+        float forseImpulseRight = 10;
+        _rigidbody2D.AddForce(Vector2.up * forseImpulseUp + Vector2.right * forseImpulseRight * direction, ForceMode2D.Impulse);
     }
 }
