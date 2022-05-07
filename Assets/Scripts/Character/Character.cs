@@ -23,7 +23,11 @@ public class Character : MonoBehaviour
         _moving.Move(_direction, _speed);
 
         if (_checker.IsEnemy)
+        {
             _moving.SpringOff(_direction);
+
+        }
+            
     }
 
     private void Update()
