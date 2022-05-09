@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
     [SerializeField] private int _lifes;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForse;
+    [SerializeField] private int _coinsNumber;
+
     private CheckingTrigger _checker;
 
     private float _direction;
@@ -23,11 +25,7 @@ public class Character : MonoBehaviour
         _moving.Move(_direction, _speed);
 
         if (_checker.IsEnemy)
-        {
-            _moving.SpringOff(_direction);
-
-        }
-            
+            _moving.SpringOff();
     }
 
     private void Update()
@@ -40,7 +38,13 @@ public class Character : MonoBehaviour
     {
         if (_lifes == 0)
             Destroy(gameObject);
-        
+        _moving.Discard();
+
         _lifes--;
+    }
+
+    public void AddCoin()
+    {
+        _coinsNumber++;
     }
 }

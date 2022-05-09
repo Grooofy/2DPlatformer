@@ -25,8 +25,12 @@ public class CheckingTrigger : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
-            enemy.TakeDamage();
             _isEnemy = true;
+            enemy.TakeDamage();
+        }
+        if (collision.gameObject.TryGetComponent(out Coin coin))
+        {
+            coin.PickUp();
         }
     }
 
