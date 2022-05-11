@@ -11,7 +11,6 @@ public class PlayerAnimations : MonoBehaviour
     private SpriteRenderer _sprite;
     private Coroutine _coroutine;
 
-    private bool _isPlaying = false;
 
     private void Start()
     {
@@ -19,9 +18,9 @@ public class PlayerAnimations : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void PlayIdle() => _animator.SetTrigger("Idle");
+    public void PlayIdle() => _animator.SetTrigger(States.Idle);
 
-    public void PlayWalk() => _animator.SetTrigger("Walk");
+    public void PlayWalk() => _animator.SetTrigger(States.Walk);
 
     public void LookAtForward(float direction)
     {
@@ -31,7 +30,7 @@ public class PlayerAnimations : MonoBehaviour
 
     public void Blink()
     {
-        if (_isPlaying)
+        if (_coroutine != null)
             StopCoroutine(_coroutine);
         else
             _coroutine = StartCoroutine(DateBlink());
@@ -43,10 +42,8 @@ public class PlayerAnimations : MonoBehaviour
         float timeAnimation = 0.3f;
         float timeCoroutine = 1;
         _sprite.DOFade(0, timeAnimation).SetLoops(number, LoopType.Yoyo);
-
-        _isPlaying = true;
+        
         yield return new WaitForSeconds(timeCoroutine);
-        _isPlaying = false;
     }
 }
 

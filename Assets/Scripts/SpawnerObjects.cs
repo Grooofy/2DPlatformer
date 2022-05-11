@@ -11,11 +11,11 @@ public class SpawnerObjects : MonoBehaviour
 
     private void Awake()
     {
-        CreatePointsSpawn();
+        TakeSpawnPoints();
         Spawn();
     }
 
-    private void CreatePointsSpawn()
+    private void TakeSpawnPoints()
     {
         _points = new List<Transform>();
 
