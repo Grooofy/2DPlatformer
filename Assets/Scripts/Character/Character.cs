@@ -38,6 +38,7 @@ public class Character : MonoBehaviour
     {
         if (_lifes == 0)
             Destroy(gameObject);
+
         _moving.Discard();
 
         _lifes--;

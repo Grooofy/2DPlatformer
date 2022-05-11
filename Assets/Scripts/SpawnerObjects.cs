@@ -5,12 +5,11 @@ using UnityEngine;
 public class SpawnerObjects : MonoBehaviour
 {
     [SerializeField] private Coin _prefab;
-    
 
     private List<Transform> _points;
     private int _currentPoint;
 
-    private void Start()
+    private void Awake()
     {
         CreatePointsSpawn();
         Spawn();

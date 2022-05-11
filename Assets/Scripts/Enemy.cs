@@ -7,10 +7,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private int _life;
+    [SerializeField] private int _delay = 5;
 
     private Moving _moving;
-
-
     private Dictionary<string, int> _states = new Dictionary<string, int>()
     {
         { "Idle", 0 },
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour
         { "WalkRight", 1 }
     };
     private float _direction;
-    private int _delay = 5;
+    
 
     private void Start()
     {

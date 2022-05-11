@@ -10,6 +10,7 @@ public class PlayerAnimations : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sprite;
     private Coroutine _coroutine;
+
     private bool _isPlaying = false;
 
     private void Start()

@@ -26,7 +26,6 @@ public class ChekingTriggerAI : MonoBehaviour
         {
             _isCharacter = true;
             character.TakeDamage();
-           
         }
     }
    
