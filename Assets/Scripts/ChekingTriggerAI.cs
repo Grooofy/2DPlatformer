@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChekingTriggerAI : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class ChekingTriggerAI : MonoBehaviour
         {
             _isCharacter = true;
             character.TakeDamage();
+           
         }
     }
    
